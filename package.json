@@ -1,0 +1,8 @@
+{
+  "name": "basic_gulp",
+  "version": "1.0.0",
+  "description": "Learn Gulp by bulid an dev environment",
+  "repository": "https://github.com/Trapa-Eureka/basic_gulp",
+  "author": "JINHO SON <1982gaya@gmail.com>",
+  "license": "MIT"
+}
