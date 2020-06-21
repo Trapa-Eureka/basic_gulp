@@ -1,6 +1,6 @@
 import gulp from "gulp";
 import gpug from "gulp-pug";
-// import del from "del";
+import del from "del";
 import ws from "gulp-webserver";
 import image from "gulp-image";
 import sass from "gulp-sass";
@@ -8,6 +8,7 @@ import autoprefixer from "gulp-autoprefixer";
 import miniCSS from "gulp-csso";
 import bro from "gulp-bro";
 import babelify from "babelify";
+import ghPages from "gulp-gh-pages";
 
 sass.compiler = require("node-sass");
 
@@ -36,7 +37,7 @@ const routes = {
 
 // cleaning previous compiled results
 // 주석처리 한 것은 차후 실수해서 지우고 다시 빌드할 필요가 생길때. prepare는 dev에 넣는다.
-//const clean = () => del(["build/"]);
+const clean = () => del([".publish"]);
 
 // compiling pug.js to html - https://www.npmjs.com/package/gulp-pug
 // compiled results at ./build
@@ -73,6 +74,8 @@ const js = () =>
     )
     .pipe(gulp.dest(routes.js.dest));
 
+const gh = () => gulp.src("build/**/*").pipe(ghPages());
+
 // watch is web reloader on save at .pug files
 // watch compilation of pug_to_html task: https://gulpjs.com/docs/en/api/watch
 const watch = () => {
@@ -88,4 +91,6 @@ const assets = gulp.series([pug, styles, js]);
 const postDev = gulp.parallel([webserver, watch]);
 
 // common and all action groups in the series
-export const dev = gulp.series([prepare, assets, postDev]);
+export const build = gulp.series([prepare, assets]);
+export const dev = gulp.series([build, postDev]);
+export const deploy = gulp.series([build, gh, clean]);

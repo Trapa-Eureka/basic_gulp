@@ -7,13 +7,14 @@
   "license": "MIT",
   "scripts": {
     "dev": "gulp dev",
-    "build": "gulp build"
+    "build": "gulp build",
+    "deploy": "gulp deploy"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
     "@babel/register": "^7.10.1",
-    "delete": "^1.1.0",
+    "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-image": "^6.2.0",
     "gulp-install": "^1.1.0",
@@ -25,6 +26,7 @@
     "gulp-autoprefixer": "^7.0.1",
     "gulp-bro": "^2.0.0",
     "gulp-csso": "^4.0.1",
+    "gulp-gh-pages": "^0.5.4",
     "gulp-sass": "^4.1.0",
     "node-sass": "^4.14.1",
     "uglifyify": "^5.0.2"
