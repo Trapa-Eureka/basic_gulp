@@ -16,6 +16,7 @@
     "delete": "^1.1.0",
     "gulp": "^4.0.2",
     "gulp-image": "^6.2.0",
+    "gulp-install": "^1.1.0",
     "gulp-pug": "^4.0.1",
     "gulp-webserver": "^0.9.1"
   }
